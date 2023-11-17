@@ -1,0 +1,32 @@
+* {
+            box-sizing: border-box;
+}
+#principal {
+    width: 360px;
+    height: auto;
+    justify-content: center;
+    padding: 15px;
+    border: solid black 2px;
+    background-color: #FFFAFA;
+    font-size: 14px;
+}
+input[type=text] {
+    background-color: #E4E4E4;
+    width: 80px;
+}
+
+td {
+    padding: 10px;
+}
+.erro{ 
+  width: 100%;
+  padding: 0;
+  font-size: 95%;
+  color: red;
+  display: inline-block;
+}
+
+input.foco {
+  border-color: #900;
+  background-color: #fdd;
+}
