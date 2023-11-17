@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var A = [];
+        var B = [];
+        var somas = [];
+        armazenaVetor();
+        mostraVetor();
+
+        function armazenaVetor(){
+            for(var i = 1; i <= 5; i++){
+                var a = parseInt(prompt("Digite o valor de A " + i));
+                A.push(a);
+                var b = parseInt(prompt("Digite o valor de B " + i));
+                B.push(b);
+                var soma = a + b;
+                somas.push(soma);
+            }
+        }
+
+        function mostraVetor(){
+            console.log("--- Vetor A ---");
+            for(let n = 0; n < A.length; n++){
+                console.log("Elemento do vetor A[" + n + "]: " + A[n]);
+            }
+
+            console.log("--- Vetor B ---");
+            for(let n = 0; n < B.length; n++){
+                console.log("Elemento do vetor B[" + n + "]: " + B[n]);
+            }
+
+            console.log("--- Vetor Soma ---");
+            for(let n = 0; n < somas.length; n++){
+                console.log("Elemento do vetor Soma[" + n + "]: " + somas[n]);
+            }
+        }
+    </script>
+</body>
+</html>

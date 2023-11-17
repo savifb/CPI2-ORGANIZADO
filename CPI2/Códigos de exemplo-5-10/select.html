@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>alterando itens</title>
+  <style type="text/css">
+      body {
+        background-color: lightblue;
+      }
+      span {
+        color: red;
+        font-size: 10px;
+      }
+  </style>
+  </head>
+  <body onload="escreve()">
+    <h2>Alterando itens da lista de frutas</h2>
+    <form name="formulario_frutas">
+      <table>
+        <tr>
+          <td>Item selecionado:</td>
+          <td><input type="text" name="selecionado" onfocus="this.forms.novo.focus()"/></td>
+          <td><input type="button" value="acrescentar" onclick="inclui()"/></td>
+        </tr>
+        <tr>
+          <td>Item a acrescentar ou mudar:</td>
+          <td>
+            <input type="text" name="novo"/><br>
+            <span id="erro"></span>
+          </td>
+          <td><input type="button" value="apagar item" onclick="apaga()"/></td>
+        </tr>
+        <tr>
+          <td>Lista:</td>
+          <td>
+            <select name="frutas" onchange="escreve()">
+              <option checked>abacaxi</option>
+              <option>banana</option>
+              <option>laranja</option>
+              <option>goiaba</option>
+            </select>
+          </td>
+          <td><input type="button" value="Mudar Item " onclick="muda()"/></td>
+        </tr>
+      </table>
+    </form>
+</body>
+<script language="javascript">
+      function inclui()
+      {
+        with (document.formulario_frutas)
+        {
+          if (novo.value == "")
+          {
+            document.getElementById('erro').innerHTML = "Escreva um novo item";
+            novo.focus();
+            return;
+          }
+          let tam = frutas.length;
+          frutas.options[tam] = new Option(novo.value);
+        }
+      }
+      function escreve()
+      {
+        with (document.formulario_frutas)
+        {
+          var ind = frutas.selectedIndex;
+          selecionado.value = frutas.options[ind].text
+        }
+      }
+      function apaga()
+      {
+        with (document.formulario_frutas)
+        {
+          frutas[frutas.selectedIndex] = null;
+          escreve();
+        }
+      }
+      function muda()
+      {
+        with (document.formulario_frutas)
+        {
+          if (novo.value == "")
+          {
+            document.getElementById('erro').innerHTML = "Escreva um novo item";
+            novo.focus();
+            return;
+          }
+          var ind = frutas.selectedIndex;
+          frutas.options[ind].text = novo.value;
+          escreve();
+        }
+      }
+    </script>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Programa 2 - Contagem de Números Positivos</title>
+</head>
+<body>
+    <script>
+        contador = 0; 
+        numpositivo = parseInt(prompt(("Digite um número: ")));
+        somapositivo = 0;
+
+        while(numpositivo > 0){
+            numpositivo = parseInt(prompt(("Digite um número: ")));
+            contador++;
+            somapositivo = somapositivo + numpositivo;
+
+        }
+        mediadigitados= somapositivo/contador;
+        alert("A media dos números digitados é "+mediadigitados);
+    </script>
+</body>
+</html>

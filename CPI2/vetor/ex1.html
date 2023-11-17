@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VETORES 10 ELEMENTOS</title>
+</head>
+<body>
+    <script>
+        var A = [];
+        var B = [];
+
+        pedir10Valores(); // Chame a função para solicitar valores.
+        mostrarVetores(); // Chame a função para mostrar os vetores.
+
+        function pedir10Valores() {  
+            for (var i = 1; i <= 3; i++) {
+                var a = parseInt(prompt("Digite o valor " + i));
+                A.push(a); // Adicione o valor digitado ao array A
+                var resto = a % 2;
+
+                if (resto === 0) {
+                    var b = a * 5;
+                    B.push(b);
+                } else {
+                    var b = a + 5;
+                    B.push(b);
+                }
+            }
+        }
+
+        function mostrarVetores() {
+            for (var n = 0; n < A.length; n++) {
+                console.log("A[" + n + "] = " + A[n]);
+                console.log2("B[" + n + "] = " + B[n]);
+            }
+        }
+    </script>
+</body>
+</html>

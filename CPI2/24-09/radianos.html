@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    function converterRadianosParaGraus() {
+        var radianos = parseFloat(prompt("Digite o valor em radianos:"));
+    
+        if (isNaN(radianos)) {
+            console.log("Por favor, insira um número válido em radianos.");
+            return;
+        }
+    
+        var graus = radianos * (180 / Math.PI);
+        console.log("Valor em graus: " + graus);
+    }
+    
+    // Chame a função para converter radianos em graus
+    converterRadianosParaGraus();
+</script>
+</body>
+</html>

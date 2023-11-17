@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo de Formulário</title>
+</head>
+<body>
+    <form name="meuForm">
+        <label for="nome">Nome:</label>
+        <input type="text" name="nome" id="nome">
+
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email">
+
+        <label for="link">Link:</label>
+        <input type="text" name="link" id="link">
+
+        <label for="src">Src:</label>
+        <input type="text" name="src" id="src">
+
+        <input type="button" value="Preencher Campos" onclick="preencherCampos()">
+    </form>
+
+    <script>
+        function preencherCampos() {
+            var nome = "Fulano de Tal";
+            var email = "fulano@example.com";
+            var link = "https://www.example.com";
+            var src = "https://www.example.com/image.jpg";
+
+            document.getElementById("nome").value = nome;
+            document.getElementById("email").value = email;
+            document.getElementById("link").value = link;
+            document.getElementById("src").value = src;
+        }
+    </script>
+</body>
+</html>

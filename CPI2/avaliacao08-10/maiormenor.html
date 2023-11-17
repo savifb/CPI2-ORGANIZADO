@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculando Maior Menor</title>
+</head>
+<body>
+    <script>
+        var maior = Number.NEGATIVE_INFINITY;
+        var menor = Number.POSITIVE_INFINITY;
+
+        for (var i = 0; i < 5; i++) {
+            var x = parseInt(prompt("Digite um número: "));
+            if (x > maior) {
+                maior = x;
+            }
+            if (x < menor) {
+                menor = x;
+            }
+        }
+
+        alert("Maior número digitado: " + maior);
+        alert("Menor número digitado: " + menor);
+    </script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Alterando itens</title>
+    <style type="text/css">
+        body {
+            background-color: lightblue;
+        }
+        span {
+            color: red;
+            font-size: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Alterando itens da lista de frutas</h2>
+    <form name="formulario_frutas">
+        <table>
+            <tr>
+                <td>Item selecionado:</td>
+                <td><input type="text" name="selecionado" id="selecionado" /></td>
+                <td><input type="button" value="acrescentar" id="acrescentar" /></td>
+            </tr>
+            <tr>
+                <td>Item a acrescentar ou mudar:</td>
+                <td>
+                    <input type="text" name="novo" id="novo" /><br>
+                    <span id="erro"></span>
+                </td>
+                <td><input type="button" value="apagar item" id="apagar" /></td>
+            </tr>
+            <tr>
+                <td>Lista:</td>
+                <td>
+                    <select name="frutas" id="frutas">
+                        <option selected>abacaxi</option>
+                        <option>banana</option>
+                        <option>laranja</option>
+                        <option>goiaba</option>
+                    </select>
+                </td>
+                <td><input type="button" value="Mudar Item" id="mudar" /></td>
+            </tr>
+        </table>
+    </form>
+
+    <script>
+        // Selecionar elementos pelo ID
+        const selecionadoInput = document.getElementById('selecionado');
+        const acrescentarButton = document.getElementById('acrescentar');
+        const novoInput = document.getElementById('novo');
+        const erroSpan = document.getElementById('erro');
+        const apagarButton = document.getElementById('apagar');
+        const frutasSelect = document.getElementById('frutas');
+        const mudarButton = document.getElementById('mudar');
+
+        // Adicionar evento de clique para acrescentar
+        acrescentarButton.addEventListener('click', function () {
+            if (novoInput.value === '') {
+                erroSpan.innerHTML = 'Escreva um novo item';
+                novoInput.focus();
+                return;
+            }
+            const newOption = new Option(novoInput.value);
+            frutasSelect.appendChild(newOption);
+            novoInput.value = '';
+            erroSpan.innerHTML = '';
+        });
+
+        // Adicionar evento de mudança para exibir item selecionado
+        frutasSelect.addEventListener('change', function () {
+            selecionadoInput.value = frutasSelect.options[frutasSelect.selectedIndex].text;
+        });
+
+        // Adicionar evento de clique para apagar item
+        apagarButton.addEventListener('click', function () {
+            frutasSelect.options[frutasSelect.selectedIndex] = null;
+            selecionadoInput.value = '';
+        });
+
+        // Adicionar evento de clique para mudar item
+        mudarButton.addEventListener('click', function () {
+            if (novoInput.value === '') {
+                erroSpan.innerHTML = 'Escreva um novo item';
+                novoInput.focus();
+                return;
+            }
+            frutasSelect.options[frutasSelect.selectedIndex].text = novoInput.value;
+            selecionadoInput.value = novoInput.value;
+            novoInput.value = '';
+            erroSpan.innerHTML = '';
+        });
+    </script>
+</body>
+</html>

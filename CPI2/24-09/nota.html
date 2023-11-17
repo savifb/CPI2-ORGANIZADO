@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Média</title>
+</head>
+<body>
+    <script>
+        function calcularMediaENotas() {
+            var notas = []; // Crie um array para armazenar as notas
+            var quantidadeDeNotas = 3; // Defina a quantidade de notas desejada
+
+            for (var i = 1; i <= quantidadeDeNotas; i++) {
+                var nota = parseFloat(prompt("Digite sua nota " + i));
+                if (!isNaN(nota)) {
+                    notas.push(nota); // Adicione a nota ao array
+                } else {
+                    console.log("Nota inválida. Por favor, insira um número.");
+                    i--; // Decrementa o contador para permitir nova tentativa
+                }
+            }
+
+            var somaDasNotas = 0;
+            for (var j = 0; j < notas.length; j++) {
+                somaDasNotas += notas[j];
+            }
+
+            var media = somaDasNotas / quantidadeDeNotas; // Calcule a média
+
+            console.log("Suas notas:");
+            for (var k = 0; k < notas.length; k++) {
+                console.log("Nota " + (k + 1) + ": " + notas[k]);
+            }
+
+            console.log("Sua média: " + media.toFixed(2));
+        }
+
+        calcularMediaENotas(); // Chame a função para calcular e imprimir as notas e a média.
+    </script>
+</body>
+</html>

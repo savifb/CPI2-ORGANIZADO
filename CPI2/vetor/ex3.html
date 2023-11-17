@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        // Função para ler valores do usuário e armazenar em um vetor
+function lerValores(numeroDeValores) {
+    var vetor = [];
+    for (var i = 0; i < numeroDeValores; i++) {
+        var valor = parseInt(prompt("Digite o valor " + (i + 1) + ":"));
+        vetor.push(valor);
+    }
+    return vetor;
+}
+
+// Função para unir dois vetores de mesmo tamanho em um terceiro vetor
+    function unirVetores(vetor1, vetor2) {
+    var vetorUniao = [];
+
+    // Verifique se os vetores têm o mesmo tamanho
+    if (vetor1.length !== vetor2.length) {
+        console.log("Os vetores não têm o mesmo tamanho.");
+        return vetorUniao;
+    }
+
+    // Percorra os vetores originais e adicione os elementos ao vetor de união
+    for (var i = 0; i < vetor1.length; i++) {
+        vetorUniao.push(vetor1[i]);
+        vetorUniao.push(vetor2[i]);
+    }
+
+    return vetorUniao;
+}
+
+// Solicite ao usuário o número de valores que deseja inserir
+var numeroDeValores = parseInt(prompt("Quantos valores você deseja inserir?"));
+
+// Leia os valores e armazene em dois vetores
+var vetor1 = lerValores(numeroDeValores);
+var vetor2 = lerValores(numeroDeValores);
+
+// Faça a união dos dois vetores em um terceiro vetor
+var vetorResultado = unirVetores(vetor1, vetor2);
+
+// Exiba o vetor de união no console
+console.log("Vetor de União:", vetorResultado);
+    </script>
+</body>
+</html>

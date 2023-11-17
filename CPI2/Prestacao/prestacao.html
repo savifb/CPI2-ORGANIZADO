@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Prestação em Atraso</title>
+</head>
+<body>
+   <form action="POST">
+        <label for="valor">Valor Total: </label>
+            <input type="number" name="valor" id="valor">
+            <br>
+            <br>
+        <label for="taxa"> Taxa: </label>
+            <input type="number" name="taxa" id="taxa">
+            <br>
+            <br>
+        <label for="dias"> Quantidade de Dias em Atraso:</label>
+            <input type="number" name="dias" id="dias">
+            <br>
+            <br>
+        
+            <input type="button" id="calcular" value="calcular"
+            onclick="calcularPrestacao()"> Calcular</button>
+   </form>
+   <p id="resultado"></p>
+    <script>
+        function calcularPrestacao(){
+            var valor = parseFloat(document.getElementById("valor").value);
+            var taxa = parseFloat(document.getElementById("taxa").value);
+            var dias = parseInt(document.getElementById("dias").value);
+
+            if (isNaN(valor) || isNaN(taxa) || isNaN(dias)){
+                alert("Insira tudo, está faltando um dado");
+            }
+            var prestacao = valor + (valor * (taxa / 100) * dias);
+
+            var resultadoPrestacao = document.getElementById("resultado");
+            resultadoPrestacao.innerHTML= "O valor da prestação é:" + "<br>" +
+            prestacao;
+        
+        }
+
+    </script>
+</body>
+</html>

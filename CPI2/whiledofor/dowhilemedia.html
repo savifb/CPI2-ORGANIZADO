@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Programa 4 - Soma e Média de Números</title>
+</head>
+<body>
+    <script>
+        var soma = 0;
+        var contador = 0;
+        var numero;
+
+        do {
+            numero = parseFloat(prompt("Digite um número (ou 9999 para sair):"));
+            
+            if (numero !== 9999) {
+                soma += numero;
+                contador++;
+            }
+        } while (numero !== 9999);
+            const media = soma / contador;
+            alert(`Soma = ${soma}\nMédia = ${media.toFixed(2)}`);
+            
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ordenação de Números</title>
+</head>
+<body>
+    <script>
+        var numeros = [];
+
+        for (var i = 0; i < 10; i++) {
+            var numero = parseInt(prompt("Digite um número inteiro: "));
+            numeros.push(numero);
+        }
+
+        var crescente = numeros.slice().sort((a, b) => a - b);
+        var decrescente = numeros.slice().sort((a, b) => b - a);
+
+        document.write("<h2>Números em Ordem Crescente:</h2>");
+        document.write(crescente.join("<br>"));
+
+        document.write("<h2>Números em Ordem Decrescente:</h2>");
+        document.write(decrescente.join("<br>"));
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        while (true) {
+            var texto = prompt("Digite um texto (ou digite 'sair' para encerrar):");
+
+            // Verifique se o usuário digitou 'sair' para encerrar o programa
+            if (texto.toLowerCase() === 'sair') {
+                break; // Saia do loop
+            }
+
+            var textoMaiusculo = texto.toUpperCase();
+            var textoMinusculo = texto.toLowerCase();
+
+            console.log("Texto em maiúsculas: " + textoMaiusculo);
+            console.log("Texto em minúsculas: " + textoMinusculo);
+        }
+    </script>
+
+
+</body>
+</html>

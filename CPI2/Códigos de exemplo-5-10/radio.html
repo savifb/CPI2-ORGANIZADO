@@ -1,0 +1,47 @@
+<html>
+	<head>
+		<title>Exemplo de radio</title>
+		<style type="text/css">
+			body {
+				background-color: lightsteelblue;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Exemplo de radio</h1>
+		<form name="form1">
+			<table>
+				<tr>
+					<th align=left>&Uacute;ltimo nome:</th>
+					<td>
+						<input type="text" name="lastname" onchange="convertField(this)">
+					</td>
+				</tr>
+				<tr>
+					<th align=left>Primeiro nome:</th>
+					<td>
+						<input type="text" name="firstname" onchange="convertField(this)">
+					</td>
+				</tr>
+			</table>
+			<p>
+				<b>Valores convertidos para:</b>
+				<br>
+				<input type="radio" name="conversion" value="upper" onclick="if (this.checked) convertAllFields('upper');">Mai&uacute;sculas
+		</form>
+	</body>
+	<script language="javascript">
+		function convertField(field){
+			if(document.form1.conversion.checked)
+				field.value = field.value.toUpperCase();
+		}
+		function convertAllFields(casechange){
+			with (document.form1){
+				if (casechange == "upper"){
+					lastname.value = lastname.value.toUpperCase();
+					firstname.value = firstname.value.toUpperCase();
+				}
+			}
+		}
+	</script>
+</html>

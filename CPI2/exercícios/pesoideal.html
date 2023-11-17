@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Peso Ideal</title>
+</head>
+<body>
+
+	<script type="text/javascript">
+		
+		altura= parseFloat(prompt("Digite sua altura: "));
+		sexo = prompt("Digite seu sexo: ");
+
+		if (sexo==="M") {
+			pesoIdeal = (72.7*altura)-58;
+			alert("você é do sexo masculino" + '\n' +
+			"logo seu peso ideal é: " + pesoIdeal );
+
+		}else{
+			pesoIdeal = (62.1*altura)-44.7;
+			alert("você é do sexo feminino" + '\n' +
+			"logo seu peso ideal é: " + pesoIdeal );
+
+		}
+
+
+
+	</script>
+
+</body>
+</html>

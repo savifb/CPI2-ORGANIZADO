@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de Temperatura</title>
+</head>
+<body>
+    <h1>Conversor de Temperatura</h1>
+
+    <label for="tempFahrenheit">Temperatura em Fahrenheit:</label>
+    <input type="number" id="tempFahrenheit">
+    <button onclick="converterParaCelsius()">Converter para Celsius</button>
+
+    <label for="tempCelsius">Temperatura em Celsius:</label>
+    <input type="number" id="tempCelsius">
+    <button onclick="converterParaFahrenheit()">Converter para Fahrenheit</button>
+
+    <p id="resultado"></p>
+
+    <script>
+        function converterParaCelsius() {
+            var tempFahrenheit = parseFloat(document.getElementById("tempFahrenheit").value);
+            var tempCelsius = celsius(tempFahrenheit);
+            document.getElementById("resultado").innerHTML = `${tempFahrenheit}°F é equivalente a ${tempCelsius.toFixed(2)}°C.`;
+        }
+
+        function converterParaFahrenheit() {
+            var tempCelsius = parseFloat(document.getElementById("tempCelsius").value);
+            var tempFahrenheit = fahrenheit(tempCelsius);
+            document.getElementById("resultado").innerHTML = `${tempCelsius}°C é equivalente a ${tempFahrenheit.toFixed(2)}°F.`;
+        }
+
+        function celsius(fahrenheit) {
+            return ((fahrenheit - 32) / 9) * 5;
+        }
+
+        function fahrenheit(celsius) {
+            return (celsius * 9 / 5) + 32;
+        }
+    </script>
+</body>
+</html>

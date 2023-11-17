@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VETOR PAR OU IMPAR</title>
+</head>
+<body>
+    <script>
+        var x = [];
+        var tipos = [];
+
+        for (var i = 0; i < 10; i++) {
+            var num = parseInt(prompt("Informe um número: "));
+            x.push(num);
+            var resto = num % 2;
+            var tipo;
+
+            if (resto == 1) {
+                tipo = "Impar";
+            } else {
+                tipo = "Par";
+            }
+
+            tipos.push(tipo);
+        }
+
+        for (var i = 0; i < 10; i++) {
+            document.write("Num " + (i + 1) + ": " + x[i] + " é " + tipos[i] + "<br>");
+        }
+    </script>
+</body>
+</html>

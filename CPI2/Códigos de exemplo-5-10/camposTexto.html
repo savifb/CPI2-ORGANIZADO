@@ -1,0 +1,58 @@
+<html>
+	<head>
+		<title>Crítica de campo</title>
+		<style type="text/css">
+			body {
+				background-color: navy; 
+				color: yellow;
+			}
+			span {
+				color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<form>
+			<h2>Crítica de campo</h2>
+			<table>
+				<tr>
+					<td>Nome:</td>
+					<td><input type="text" name="nome" value=""></td>
+				</tr>
+				<tr>
+					<td>Telefone:</td>
+					<td>
+						<input type="text" name="telefone" value="" onblur= "verificaTelefone(this)">
+						<span id="erro"></span>
+					</td>
+				</tr>
+			</table>
+			<p>
+				<input type="button" value="enviar">
+				<input type="reset" value="apagar">
+			</p>
+		</form>
+	</body>
+		<script language="javascript">
+			<!--
+			//retorna se o valor for numerico
+			function ehDigito(caractere)
+			{
+				return((caractere >= "0") && (caractere <= "9"));
+			}
+			//verifica se o telefone está correto
+			function verificaTelefone(campo)
+			{
+				let telef = campo.value;
+				for(i = 0; i < telef.length; i++)
+					if (! ehDigito(telef.charAt(i)))
+					{
+						document.getElementById('erro').innerHTML = "Caractere '"+telef.charAt(i)+"' inválido: deve ser número!";
+						campo.focus();
+						return false;
+					}
+				return true;
+			}
+			//-->
+		</script>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOCALIZA NOME</title>
+</head>
+<body>
+    <script>
+        var nomes = [];
+
+        for (var i = 0; i < 3; i++) {
+            var nome = prompt("Digite o nome: ");
+            nomes.push(nome);
+        }
+
+        for (var i = 0; i < 3; i++) {
+            alert("Nome " + (i + 1) + ": " + nomes[i]);
+        }
+
+        var selecaoNome = parseInt(prompt("Digite o número para localizar o nome:"));
+
+        if (selecaoNome >= 1 && selecaoNome <= nomes.length) {
+            alert("Nome selecionado: " + nomes[selecaoNome - 1]);
+        } else {
+            alert("Número inválido");
+        }
+    </script>
+</body>
+</html>

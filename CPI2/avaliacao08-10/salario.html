@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        hora = parseFloat(prompt("Digite suas horas trabalhadas: "));
+        valorhora = parseFloat(prompt("Valor a hora trabalhada: "));
+        percentual = parseFloat(prompt("Qual percentual de desconto: "))/100
+        salbruto = hora*valorhora;
+        desconto = salbruto*percentual;
+        saliquido = salbruto - desconto
+        
+        alert("hora: \n"+hora+"\nSalário Bruto: \n"+salbruto+"\nDesconto: \n"+desconto+"\nSalário Líquido: \n"+saliquido);    </script>
+</body>
+</html>

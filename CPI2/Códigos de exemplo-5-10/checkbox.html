@@ -1,0 +1,25 @@
+<html>
+	<head>
+		<title>exemplo de checkbox</title>
+		<style type="text/css">
+			body {
+				background-color: beige;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Exemplo de checkbox</h1>
+		<form>
+			<input type=checkbox onclick="clicou(this)">marque aqui!
+		</form>
+	</body>
+		<script>
+			function clicou(campo)
+			{
+				if(campo.checked)
+					alert("O campo está selecionado !");
+				else
+					alert("Campo desmarcado !");
+			}
+		</script>
+</html>

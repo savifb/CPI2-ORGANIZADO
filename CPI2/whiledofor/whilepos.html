@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Programa 2 - Contagem de Números Positivos</title>
+</head>
+<body>
+    <script>
+        contador = 0;
+        numero = parseInt(prompt("Digite um número positivo (ou um negativo para sair):"));
+
+        while (numero > 0) {
+            contador++;
+            numero = parseInt(prompt("Digite outro número positivo (ou um negativo para sair):"));
+        }
+
+        alert(`Foram digitados ${contador} números positivos.`);
+    </script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Crítica de campo</title>
+    <style type="text/css">
+        body {
+            background-color: navy;
+            color: yellow;
+        }
+        span {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <h2>Crítica de campo</h2>
+        <table>
+            <tr>
+                <td>Nome:</td>
+                <td><input type="text" id="nome" name="nome" value=""></td>
+            </tr>
+            <tr>
+                <td>Telefone:</td>
+                <td>
+                    <input type="text" id="telefone" name="telefone" value="">
+                    <span id="erro"></span>
+                </td>
+            </tr>
+        </table>
+        <p>
+            <input type="button" value="enviar">
+            <input type="reset" value="apagar">
+        </p>
+    </form>
+
+    <script>
+        // Retorna true se o caractere for um dígito
+        function ehDigito(caractere) {
+            return (caractere >= "0" && caractere <= "9");
+        }
+
+        // Verifica se o telefone está correto
+        function verificaTelefone(campo) {
+            const telef = campo.value;
+            for (let i = 0; i < telef.length; i++) {
+                if (!ehDigito(telef.charAt(i))) {
+                    document.getElementById('erro').innerHTML = "Caractere '" + telef.charAt(i) + "' inválido: deve ser número!";
+                    campo.focus();
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        // Adiciona eventos de blur aos campos Nome e Telefone
+        const nomeCampo = document.getElementById('nome');
+        const telefoneCampo = document.getElementById('telefone');
+        const erroSpan = document.getElementById('erro');
+
+        nomeCampo.addEventListener('blur', function () {
+            // Coloque aqui a lógica para validar o campo Nome, se necessário
+        });
+
+        telefoneCampo.addEventListener('blur', function () {
+            if (!verificaTelefone(telefoneCampo)) {
+                erroSpan.innerHTML = "Telefone inválido!";
+            } else {
+                erroSpan.innerHTML = ""; // Limpa a mensagem de erro
+            }
+        });
+    </script>
+</body>
+</html>

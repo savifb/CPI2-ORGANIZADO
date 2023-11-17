@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function calNum(){
+            for (var i = 0; i < 3; i++) {
+                var num = parseInt(prompt("Informe um número: "));
+                var dobro = num * 2;
+                
+            }
+        }
+        impressaoFormato(num, dobro);
+        
+        function impressaoFormato(num, dobro){
+            console.log("********************");
+            console.log("Seu Número:  " + num);
+            console.log("Seu dobro: " + dobro);
+            console.log("********************");
+        }
+        
+        calNum(); // Chame a função calNum para começar o processo de entrada de números e impressão.
+    </script>
+</body>
+</html>

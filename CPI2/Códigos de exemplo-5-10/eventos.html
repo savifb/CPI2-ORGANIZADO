@@ -1,0 +1,44 @@
+<html>
+	<head>
+		<title>Diversos Eventos</title>
+		<style type="text/css">
+			body {
+				background-color: salmon;
+			}
+			img {
+				border: 0;
+				width: 70;
+				height: 70;
+			}
+		</style>
+		</head>
+	<body>
+		<h1>Diversos Eventos</h1>
+		<h2>Adicionando escutadores de eventos diretamente no HTML</h2>
+		<a href="javascript:nada()" onclick="clica()", onmouseover="entrei('kit1')", onmouseout="sai()">
+	  		<img src="hello1.jpg"/>
+	  	</a>
+		<a href="javascript:nada()" onclick="clica()" onmouseover="entrei('kit2')" onmouseout="sai()">
+			<img src="hello2.png"/>
+		</a>
+		<a href="javascript:nada()" onclick="clica()" onmouseover="entrei('kit3')" onmouseout="sai()">
+			<img src="hello3.gif"/>
+		</a>
+		<form name=saida>
+			<input type=text name=texto>
+		</form>
+	</body>
+	<script language="javascript">
+			function entrei(nome){
+				document.saida.texto.value = nome;
+			}
+			function sai(){
+				document.saida.texto.value = " saiu ";
+			}
+			function nada(){
+			}
+			function clica(){
+				document.saida.texto.value = " clicou ";
+			}
+	</script>
+</html>

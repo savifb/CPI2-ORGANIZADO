@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Exemplo de radio</title>
+    <style type="text/css">
+        body {
+            background-color: lightsteelblue;
+        }
+    </style>
+</head>
+<body>
+    <h1>Exemplo de radio</h1>
+    <form name="form1">
+        <table>
+            <tr>
+                <th align=left>&Uacute;ltimo nome:</th>
+                <td>
+                    <input type="text" name="lastname">
+                </td>
+            </tr>
+            <tr>
+                <th align=left>Primeiro nome:</th>
+                <td>
+                    <input type="text" name="firstname">
+                </td>
+            </tr>
+        </table>
+        <p>
+            <b>Valores convertidos para:</b>
+            <br>
+            <input type="radio" name="conversion" value="upper" id="radioUpper"> Mai&uacute;sculas
+            <input type="radio" name="conversion" value="lower" id="radioLower"> Min&uacute;sculas
+        </p>
+        <button id="converter">Converter</button>
+    </form>
+
+    <script>
+        // Selecionar os elementos pelo ID
+        const radioUpper = document.getElementById('radioUpper');
+        const radioLower = document.getElementById('radioLower');
+        const converterButton = document.getElementById('converter');
+        const lastnameInput = document.querySelector('input[name="lastname"]');
+        const firstnameInput = document.querySelector('input[name="firstname"]');
+
+        // Adicionar um evento de clique para converter
+        converterButton.addEventListener('click', function () {
+            const selectedRadio = document.querySelector('input[name="conversion"]:checked');
+
+            if (selectedRadio) {
+                const conversionType = selectedRadio.value;
+                if (conversionType === 'upper') {
+                    lastnameInput.value = lastnameInput.value.toUpperCase();
+                    firstnameInput.value = firstnameInput.value.toUpperCase();
+                } else if (conversionType === 'lower') {
+                    lastnameInput.value = lastnameInput.value.toLowerCase();
+                    firstnameInput.value = firstnameInput.value.toLowerCase();
+                }
+            }
+        });
+    </script>
+</body>
+</html>

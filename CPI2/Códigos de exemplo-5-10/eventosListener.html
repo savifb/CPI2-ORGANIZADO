@@ -1,0 +1,88 @@
+<html>
+	<head>
+		<title>Diversos Eventos</title>
+		<style type="text/css">
+			body {
+				background-color: salmon;
+			}
+			img {
+				border: 0;
+				width: 70;
+				height: 70;
+			}
+		</style>
+		</head>
+	<body>
+		<h1>Diversos Eventos</h1>
+		<h2>Adicionando escutadores de eventos com JavaScript</h2>
+		<a href="javascript:nada()">
+	  		<img src="hello1.jpg" name="kit1"/>
+	  	</a>
+		<a href="javascript:nada()">
+			<img src="hello2.png" name="kit2"/>
+		</a>
+		<a href="javascript:nada()">
+			<img src="hello3.gif" name="kit3"/>
+		</a>
+		<form name=saida>
+			<input type=text name=texto>
+		</form>
+	</body>
+	<script language="javascript">
+		/* Usando getElementById --- para funcionar precisa adicionar um id em cada tag <a>
+
+		const link1 = document.getElementById("kit1");
+		console.log(link1);
+		link1.addEventListener("click", clica);
+		link1.addEventListener("mouseout", sai);
+
+		const link2 = document.getElementById("kit2");
+		console.log(link2);
+		link2.addEventListener("click", clica);
+		link2.addEventListener("mouseout", sai);
+
+		const link3 = document.getElementById("kit3");
+		console.log(link3);
+		link3.addEventListener("click", clica);
+		link3.addEventListener("mouseout", sai);
+		*/
+
+		const links = document.querySelectorAll("a"); //pega todos os elementos <a> do documento
+		console.log(links); // NodeList com todos os elementos <a>
+
+		/* Iterando a lista de links usando for e adicionando os escutadores de eventos para cada um deles
+
+		for(i=0;i<links.length;i++){
+			links[i].addEventListener("click", clica);
+			links[i].addEventListener("mouseout", sai);
+			links[i].addEventListener("mouseover", (evento) => {
+				entrei(evento.target.name);
+			});
+		}
+		*/
+
+		/* Iterando a lista de links usando o método de Array forEach() e adicionando os escutadores de eventos para cada um deles */
+		links.forEach((link) => {
+			link.addEventListener("click", clica);
+			link.addEventListener("mouseout", sai);
+			link.addEventListener("mouseover", (evento) => {
+				console.log(evento);
+				console.log(evento.target);
+
+				entrei(evento.target.name); /* passa para a função entrei() o conteúdo do atributo name do elemento que disparou o evento */
+			});	
+		});
+
+		function nada(){
+		}
+		function clica(){
+			document.saida.texto.value = " clicou ";
+		}
+		function entrei(nome){
+			document.saida.texto.value = nome;
+		}
+		function sai() {
+			document.saida.texto.value = " saiu ";	
+		}
+	</script>
+</html>

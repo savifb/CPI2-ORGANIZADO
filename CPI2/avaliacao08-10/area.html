@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Função Área</title>
+</head>
+<body>
+    <form id="raioperimetro">
+        <label for="raio">Raio: </label>
+        <input type="number" id="raio">
+        <button type="button" onclick="calcularArea()">Calcular</button>
+        <p id="contendoResultado"></p>
+    </form>
+    <script>
+        var pi = 3.14;
+
+        function calcularArea() {
+            var raio = parseFloat(document.getElementById("raio").value);
+            var areaResultado = area(raio);
+            var perimetroResultado = perimetro(raio);
+
+            document.getElementById("contendoResultado").innerHTML = `Área do círculo: ${areaResultado.toFixed(2)} unidades quadradas<br>Perímetro do círculo: ${perimetroResultado.toFixed(2)} unidades lineares`;
+        }
+
+        function area(raio) {
+            return raio * raio * pi;
+        }
+
+        function perimetro(raio) {
+            return 2 * pi * raio;
+        }
+    </script>
+</body>
+</html>
