@@ -35,5 +35,83 @@
 			<input type="button" id="calcula" value="Calcula Preço Total">
 		</form>
 	</section>
+	<script src="js/validaCampo.js"></script>
+	<script src="js/calculaCompra.js"></script>
+	<script src="js/novaJanela.js"></script>
 </body>
 </html>
+<script type="text/javascript">
+    produtos.forEach((produto) => {
+        document.write(
+            `<tr>
+                <td>${produto.nome}</td>
+                <td>${produto.preco}</td>
+                <td><input type='text' name=${produto.nome} data-preco=${produto.preco} pattern='^[0-9]\\d*(\\.\\d+)?$'> kg</td>
+            </tr>`
+        );
+    });
+	const camposTexto = document.querySelectorAll("[type=text]");
+	console.log(camposTexto);
+
+	const botaoCalcula = document.getElementById("calcula");
+
+botaoCalcula.addEventListener("click", () => {
+    let compras = []
+    camposTexto.forEach((campo) => {
+        if(campo.value) {
+            compras.push({
+                nome: campo.name,
+                preco: campo.getAttribute('data-preco'),
+                quantidade: campo.value
+            });
+        }
+    });
+
+    if(compras.length > 0)
+        abreModal(compras);
+});
+
+const spanErro = document.getElementById("erro");
+
+camposTexto.forEach((campo) => {
+    campo.addEventListener("input", () => validaCampo(campo));
+    campo.addEventListener("blur", () => validaCampo(campo));
+});
+
+function validaCampo(campo){
+    spanErro.innerHTML = "tem um erro aqui";
+    campo.classList.remove("foco");
+    if(campo.validity.patternMismatch) {
+        spanErro.innerHTML = "Preencha um número inteiro ou decimal!";
+        campo.classList.add("foco");
+    }
+}
+
+function abreModal(compras) {
+    let modal = document.createElement("div");
+    modal.style.width = "380px";
+    modal.style.height = "480px";
+    modal.style.backgroundColor = "#fff";
+    modal.style.position = "fixed";
+    modal.style.top = "50%";
+    modal.style.left = "50%";
+    modal.style.transform = "translate(-50%, -50%)";
+    modal.style.padding = "20px";
+    modal.style.boxSizing = "border-box";
+    modal.style.zIndex = "1000";
+
+    let conteudo = "<h3>Feira Online: Extrato de Compras</h3><hr>";
+    conteudo += "<table><tr><td>PRODUTO</td><td>PREÇO</td><td>QUANTIDADE</td></tr>";
+    let total = 0;
+    compras.forEach((item) => {
+        conteudo += `<tr><td>${item.nome}</td><td>${item.preco}</td><td>${item.quantidade} kg</td></tr>`;
+        total += item.preco * item.quantidade;
+    });
+    conteudo += "</table><hr>";
+    conteudo += `<h5>Valor Total: ${total.toFixed(2)}</h5>`;
+    conteudo += '<button onclick="this.parentElement.remove()">Fechar</button>';
+
+    modal.innerHTML = conteudo;
+    document.body.appendChild(modal);
+}
+</script>
