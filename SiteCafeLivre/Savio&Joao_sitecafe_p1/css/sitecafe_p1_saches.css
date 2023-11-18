@@ -1,0 +1,14 @@
+main {
+    background-color: #6F4E37; /* Cor de café */
+    color: #DAA520; /* Cor dourada */
+    padding: 20px;
+    line-height: 1.6; /* Espaçamento entre linhas */
+}
+
+main ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

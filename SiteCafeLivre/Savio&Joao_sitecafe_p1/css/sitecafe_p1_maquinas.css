@@ -1,0 +1,25 @@
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+table img {
+    width: 100px;
+    height: 100px;
+}
+table, th, td {
+    border: 1px solid black;
+    padding: 10px;
+}
+.linha-titulo{
+    background-color:rgb(172, 65, 65);
+    color: aliceblue;
+
+}
+.titulo-linha{
+    background-color: rgba(165, 42, 42, 0.373);
+    color: white;
+}
