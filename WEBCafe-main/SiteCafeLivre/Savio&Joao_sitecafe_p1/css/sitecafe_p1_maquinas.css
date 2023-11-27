@@ -1,0 +1,37 @@
+banner img{
+    width: 100px;
+}
+
+nav li a{
+    text-align: center;
+    font-size: 30px;
+    color: #eac35a;
+    font-family: 'Times New Roman', Times, serif;
+    margin: 0;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+table img {
+    width: 150px;
+    height: 150px;
+}
+table, th, td {
+    border: 1px solid black;
+    padding: 10px;
+}
+.linha-titulo{
+    background-color:#3c5c34;
+    color: aliceblue;
+
+}
+.titulo-linha{
+    background-color: #616f33;
+    color: white;
+}
