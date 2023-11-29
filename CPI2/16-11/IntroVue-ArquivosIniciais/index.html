@@ -9,8 +9,22 @@
   </head>
   <body>
     <div id="app">
-      <h1>{{produto}}</h1>
-      <p>{{descricao}}</p>
+      <div class="nav-bar"></div>
+      <div class="product-display">
+      <div class="product-container">
+        <div class="product-image">
+          <img v-bind:src="image"></imf>
+        </div>
+        </div>
+      
+          <div class="product-info">
+              <h1>{{produto}}</h1>
+          </div>
+          <p>{{descricao}}</p>
+          <a v-bind:href="link">Mais produtos como este</a>
+      </div>
+      </div>
+      
     </div>
 
     <script src="./main.js"></script>
