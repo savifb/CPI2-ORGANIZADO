@@ -17,11 +17,20 @@
         </div>
           <div class="product-info">
               <h1>{{produto}}</h1>
-              <p v-if="(estoque > 10)">Em estoque</p>
-              <p v-else-if="(estoque <= 10) && (estoque > 0)">Quase Esgotado!</p>
-              <p v-else="estoque" >Estoque Esgotado</p>
-              <p v-if="promocao=true">Em Promoção!</p>
-              <p v-els-if="promocao=false">Não Em promoção</p>
+              <p v-if="estoque > 10">Em estoque</p>
+              <p v-else-if="estoque <= 10 && estoque > 0">Quase Esgotado!</p>
+              <p v-else>Estoque Esgotado</p>
+              <p v-if="promocao">Em Promoção!</p>
+              <p v-else>Não Em promoção</p>
+              <h3>Detalhes:</h3>
+              <ul>
+                <li v-for="(detalhe, index) in detalhes" :key="index">{{detalhe}}</li>
+              </ul>
+              <ul>
+                <li v-for='detalhe in detalhes'>{{detalhe}}</li>
+              </ul>
+              <h3>Cores disponíveis:</h3>
+              <div v-for="item in cores" :key="item.id">{{item.cor}}</div>
           </div>
           <p>{{descricao}}</p>
           <a v-bind:href="link">Mais produtos como este</a>
