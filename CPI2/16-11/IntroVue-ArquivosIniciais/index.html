@@ -13,18 +13,20 @@
       <div class="product-display">
       <div class="product-container">
         <div class="product-image">
-          <img v-bind:src="image"></imf>
+          <img v-bind:src="image">
         </div>
-        </div>
-      
           <div class="product-info">
               <h1>{{produto}}</h1>
+              <p v-if="(estoque > 10)">Em estoque</p>
+              <p v-else-if="(estoque <= 10) && (estoque > 0)">Quase Esgotado!</p>
+              <p v-else="estoque" >Estoque Esgotado</p>
+              <p v-if="promocao=true">Em Promoção!</p>
+              <p v-els-if="promocao=false">Não Em promoção</p>
           </div>
           <p>{{descricao}}</p>
           <a v-bind:href="link">Mais produtos como este</a>
       </div>
       </div>
-      
     </div>
 
     <script src="./main.js"></script>
