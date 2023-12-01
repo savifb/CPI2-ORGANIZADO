@@ -1,43 +1,20 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <title>Introdução ao Vue</title>
-    <!-- Import Styles -->
-    <link rel="stylesheet" href="./assets/styles.css" />
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-  </head>
-  <body>
-    <div id="app">
-      <div class="nav-bar"></div>
-      <div class="product-display">
-      <div class="product-container">
-        <div class="product-image">
-          <img v-bind:src="image">
-        </div>
-          <div class="product-info">
-              <h1>{{produto}}</h1>
-              <p v-if="estoque > 10">Em estoque</p>
-              <p v-else-if="estoque <= 10 && estoque > 0">Quase Esgotado!</p>
-              <p v-else>Estoque Esgotado</p>
-              <p v-if="promocao">Em Promoção!</p>
-              <p v-else>Não Em promoção</p>
-              <h3>Detalhes:</h3>
-              <ul>
-                <li v-for="(detalhe, index) in detalhes" :key="index">{{detalhe}}</li>
-              </ul>
-              <ul>
-                <li v-for='detalhe in detalhes'>{{detalhe}}</li>
-              </ul>
-              <h3>Cores disponíveis:</h3>
-              <div v-for="item in cores" :key="item.id">{{item.cor}}</div>
-          </div>
-          <p>{{descricao}}</p>
-          <a v-bind:href="link">Mais produtos como este</a>
-      </div>
+<head>
+  <meta charset="UTF-8" />
+  <title>Introdução ao Vue</title>
+  <link rel="stylesheet" href="./assets/styles.css" />
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+  <div id="app">
+    <div class="nav-bar">
+      <div class="cart">
+        <span class="title-cart">Meu Carrinho {{carrinho.length}}</span>
       </div>
     </div>
-
-    <script src="./main.js"></script>
-  </body>
+    <product-display :premium ='premium' @add-carrinho="atualizaCarrinho" @remove-carrinho="removeCarrinho"></product-display>
+  </div>
+  <script src="./main.js" type="module"></script>
+</body>
 </html>
